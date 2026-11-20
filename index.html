@@ -23,7 +23,6 @@
 
 <script>
 (() => {
-const HAND_PNG = 'data:image/png;base64,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';
 const cv = document.getElementById('c');
 const errBox = document.getElementById('err');
 const gl = cv.getContext('webgl2', {antialias:false, alpha:false, premultipliedAlpha:false});
@@ -42,10 +41,11 @@ uniform vec2 uRes; uniform float uT, uDpr;
 uniform vec2 uHC; uniform float uHS;
 uniform vec2 uTC; uniform vec2 uTS;
 uniform float uScan, uScanOn, uDone, uGone, uWhite, uReveal, uTextOn;
+uniform vec2 uTips[5];
 out vec4 O;
 
-const vec3 CYAN = vec3(0.12,0.82,1.0);
-const vec3 MINT = vec3(0.35,1.0,0.78);
+const vec3 CYAN = vec3(0.16,0.55,1.0);
+const vec3 MINT = vec3(0.45,0.92,1.0);
 const float TM = 48.0/1024.0;
 
 float h21(vec2 p){ p=fract(p*vec2(123.34,456.21)); p+=dot(p,p+45.32); return fract(p.x*p.y); }
@@ -57,7 +57,7 @@ vec4 hand(vec2 uv){ if(any(lessThan(uv,vec2(0.))) || any(greaterThan(uv,vec2(1.)
 vec4 txt (vec2 uv){ if(any(lessThan(uv,vec2(0.))) || any(greaterThan(uv,vec2(1.)))) return vec4(0.); return texture(uText,uv); }
 
 // R fill, G detail lines, B glow, A edge
-float handI(vec4 h, float vf){ return h.a*1.15 + h.g*(0.5+0.4*vf) + h.r*(0.09+0.12*vf); }
+float handI(vec4 h, float vf){ return h.a*0.85 + h.r*(0.14+0.10*vf) + h.r*h.b*(0.32+0.25*vf); }
 
 void main(){
   vec2 fc = gl_FragCoord.xy;
@@ -69,9 +69,14 @@ void main(){
   float vig = 1. - smoothstep(0.3, 1.2, length(p*vec2(0.75,1.)));
   col += vec3(0.004,0.016,0.032);
   col += mix(CYAN,MINT,uDone)*0.07*exp(-length(p-uHC)*2.2);
-  vec2 g = p*30.; vec2 gf = fract(g)-0.5;
-  float dotg = smoothstep(0.075, 0.0, length(gf));
-  col += CYAN*dotg*vig*0.13*(0.4+0.6*vn(floor(g)*0.35+vec2(t*0.25,0.)));
+  float gs = 24.;
+  vec2 g = p*gs; vec2 gd = min(fract(g), 1.-fract(g));
+  float lw = uDpr*gs/uRes.y;
+  float grid = smoothstep(lw*1.2, 0., min(gd.x, gd.y));
+  vec2 g5 = p*gs/4.; vec2 gd5 = min(fract(g5), 1.-fract(g5));
+  float grid5 = smoothstep(lw*0.3, 0., min(gd5.x, gd5.y));
+  col += CYAN*(grid*0.1 + grid5*0.08)*vig*(0.6+0.4*vn(p*3.+vec2(t*0.15,0.)));
+  col += CYAN*0.04*vig;
   col += CYAN*0.025*exp(-pow((p.y - (fract(t*0.07)*1.6-0.8))*8.,2.))*vig;
 
   /* ---------- hand ---------- */
@@ -90,8 +95,22 @@ void main(){
     hcol += hc*(hG.a*0.9 + hG.r*0.14 + hG.g*0.4)*sw*(1.-uScanOn)*(1.-uDone);
     // dot matrix inside the hand
     vec2 hp = huv*70.; float hd = smoothstep(0.2,0.05,length(fract(hp)-0.5));
-    hcol += hc*hd*hG.r*(0.1+0.3*vf);
+    hcol += hc*hd*hG.r*(0.05+0.15*vf);
     hcol += hc*hG.b*0.3*(1.+vf*0.6);
+    // fingertip targets: glowing dot + rotating dashed rings
+    float pxu = uDpr/(uHS*uRes.y);
+    for(int i=0;i<5;i++){
+      vec2 d = huv - uTips[i];
+      float rr = length(d), an = atan(d.y,d.x);
+      float lit = max(uDone, uScanOn*step(uScan, uTips[i].y - 0.01));
+      float sp = (i%2==0 ? 1. : -1.)*(0.6 + lit*1.6);
+      float pul = 1. + 0.12*sin(t*3. + float(i)*1.7)*(1.-lit) + lit*0.08*sin(t*8.);
+      float dotc = exp(-pow(rr/(0.013*pul),2.));
+      float r1 = smoothstep(3.0*pxu, 0., abs(rr-0.052*pul))*step(0.3, fract(an/6.2832*3. + t*0.25*sp));
+      float r2 = smoothstep(2.0*pxu, 0., abs(rr-0.064*pul))*step(0.55, fract(an/6.2832*4. - t*0.18*sp));
+      vec3 tcol = mix(CYAN, vec3(0.75,0.97,1.), lit);
+      hcol += tcol*(dotc*(1.1+lit*0.8) + r1*(1.0+lit*0.6) + r2*(0.7+lit*0.5)) + tcol*exp(-rr*40.)*0.15*(1.+lit);
+    }
     // scan band: orderly glowing pixel grid + wireframe
     if(band > 0.01){
       vec2 cg = huv*90.;
@@ -185,7 +204,7 @@ void main(){
   float a = mix(sin(3.14159*life)*(0.3+0.7*(depth*0.5+0.5))*(0.55+0.45*uE)*(1.-uGone),
                 (0.15+0.25*sin(uT*2.+r*60.))*0.8, dust);
   a = max(a,0.) + boost*0.9;
-  vec3 c = mix(vec3(0.12,0.82,1.), vec3(0.35,1.,0.78), uDone);
+  vec3 c = mix(vec3(0.16,0.55,1.), vec3(0.45,0.92,1.), uDone);
   c = mix(c, vec3(1.), boost*0.7);
   float s = (1.6 + 3.8*fract(r*5.3))*uDpr*mix(0.6+0.6*(depth*0.5+0.5), 0.8, dust)*(1.+boost*1.6);
   gl_PointSize = s;
@@ -251,30 +270,49 @@ function makeTex(w, h, data){
 }
 function canvas(w,h){ const c=document.createElement('canvas'); c.width=w; c.height=h; return [c, c.getContext('2d', {willReadFrequently:true})]; }
 
-/* Hand icon: silhouette comes from the supplied icon (447x447, bbox x48-399, y0-446) */
-const N = 1024, BB = {x:48, y:0, w:352, h:447};
+/* Hand: procedurally drawn palm-print (design space ~ 0..800) */
+const N = 1024, BB = {x:155, y:36, w:482, h:662};
 const HS_SCALE = N*0.94/BB.h;
 const OX = (N - BB.w*HS_SCALE)/2 - BB.x*HS_SCALE, OY = (N - BB.h*HS_SCALE)/2 - BB.y*HS_SCALE;
 const HAND_FW = BB.w*HS_SCALE/N, HAND_FH = BB.h*HS_SCALE/N;
+const FINGERS = [ // tip, curve control, base, tip radius, base radius
+  [[183,202],[175,292],[180,380], 22, 14],
+  [[266,104],[255,202],[258,306], 24, 16],
+  [[366, 68],[351,182],[343,300], 25, 17],
+  [[470,110],[450,212],[430,320], 24, 16],
+];
+const THUMB = [[590,365],[624,384],[630,430],[602,470],[566,494],[540,480],[545,440],[564,396]];
+const PALM_A = [[175,425],[205,372],[270,350],[350,345],[420,352],[442,380],[420,406],[370,432],[326,472],[296,522],[286,582],[292,630],[266,656],[214,650],[180,600],[165,520]];
+const PALM_B = [[346,522],[380,478],[416,470],[442,506],[472,556],[506,590],[511,636],[481,672],[420,692],[360,686],[326,656],[318,602],[326,556]];
+const TIPS = [[183,212],[266,114],[366,78],[470,120],[596,400]];
+const MX = 2*BB.x + BB.w; // mirror horizontally around the hand's centre
+const TIPS_UV = new Float32Array(TIPS.flatMap(([x,y]) => [((MX-x)*HS_SCALE+OX)/N, 1-(y*HS_SCALE+OY)/N]));
 let texHand = makeTex(1,1,new Uint8Array([0,0,0,0]));
 
-function buildHand(img){
-  const tr = ctx => ctx.setTransform(HS_SCALE,0,0,HS_SCALE,OX,OY);
-  // silhouette mask
-  const [mc, mx] = canvas(N,N); tr(mx); mx.imageSmoothingQuality='high'; mx.drawImage(img,0,0);
-  const M = mx.getImageData(0,0,N,N).data;
-  const [fc, fx] = canvas(N,N); const fimg = fx.createImageData(N,N);
-  const f = new Uint8Array(N*N);
-  for(let i=0;i<N*N;i++){
-    const l = (M[i*4]+M[i*4+1]+M[i*4+2])/3, a = M[i*4+3];
-    let m = a*(255-l)/255; m = Math.max(0, Math.min(255, (m-128)*3+128));
-    f[i]=m; fimg.data[i*4]=fimg.data[i*4+1]=fimg.data[i*4+2]=255; fimg.data[i*4+3]=m;
+function blob(ctx, pts){
+  const n=pts.length, mid=(a,b)=>[(a[0]+b[0])/2,(a[1]+b[1])/2];
+  ctx.beginPath(); ctx.moveTo(...mid(pts[n-1],pts[0]));
+  for(let i=0;i<n;i++){ const m=mid(pts[i],pts[(i+1)%n]); ctx.quadraticCurveTo(pts[i][0],pts[i][1],m[0],m[1]); }
+  ctx.closePath(); ctx.fill();
+}
+function finger(ctx, [tip,ctl,base,rt,rb]){
+  for(let i=0;i<=160;i++){
+    const t=i/160, u=1-t;
+    const x=u*u*tip[0]+2*u*t*ctl[0]+t*t*base[0], y=u*u*tip[1]+2*u*t*ctl[1]+t*t*base[1];
+    const r=(rt+(rb-rt)*t)*(1+0.1*Math.exp(-Math.pow((t-0.07)/0.07,2)));
+    ctx.beginPath(); ctx.arc(x,y,r,0,7); ctx.fill();
   }
-  fx.putImageData(fimg,0,0);
-  // glow
+}
+function buildHand(){
+  const [fc, fx] = canvas(N,N);
+  fx.setTransform(-HS_SCALE,0,0,HS_SCALE,OX+MX*HS_SCALE,OY); fx.fillStyle='#fff';
+  FINGERS.forEach(f=>finger(fx,f)); blob(fx,THUMB); blob(fx,PALM_A); blob(fx,PALM_B);
+  const F = fx.getImageData(0,0,N,N).data;
+  const f = new Uint8Array(N*N); for(let i=0;i<N*N;i++) f[i]=F[i*4+3];
+  // blur only (shadow trick): soft halo outside + inner gradient
   const [gc, gx] = canvas(N,N);
-  gx.shadowColor='#fff'; gx.shadowBlur=60; gx.drawImage(fc,0,0); gx.shadowBlur=24; gx.drawImage(fc,0,0);
-
+  gx.shadowColor='#fff'; gx.shadowOffsetX=4000;
+  gx.shadowBlur=70; gx.drawImage(fc,-4000,0); gx.shadowBlur=30; gx.drawImage(fc,-4000,0);
   const G = gx.getImageData(0,0,N,N).data;
   const offs=[]; for(let r=1;r<=6;r++) offs.push([r,0],[-r,0],[0,r],[0,-r]); offs.push([3,3],[-3,3],[3,-3],[-3,-3],[4,4],[-4,4],[4,-4],[-4,-4]);
   const out = new Uint8Array(N*N*4);
@@ -287,7 +325,7 @@ function buildHand(img){
   }
   texHand = makeTex(N,N,out);
 }
-const handImg = new Image(); handImg.onload = () => buildHand(handImg); handImg.src = HAND_PNG;
+buildHand();
 
 let texText = makeTex(1,1,new Uint8Array([0,0,0,255]));
 function buildText(){
@@ -427,6 +465,7 @@ function frame(){
   gl.uniform1f(u.uScan,scan); gl.uniform1f(u.uScanOn,scanOn); gl.uniform1f(u.uDone,done);
   gl.uniform1f(u.uGone,gone); gl.uniform1f(u.uWhite,white);
   gl.uniform1f(u.uReveal,reveal); gl.uniform1f(u.uTextOn,textOn);
+  gl.uniform2fv(u['uTips[0]'], TIPS_UV);
   gl.bindVertexArray(vaoQ); gl.drawArrays(gl.TRIANGLES,0,3);
 
   if(white < 0.999){
